@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello Page Product!
+{% endblock %}
+
+{% block body %}
+	<h1 class="mb-4">{{product.name}}</h1>
+	<p>
+		<strong>Codigo</strong>: #{{product.metadata.code}}</p>
+
+	<p>{{product.sumary}}</p>
+	<hr>
+	<p>{{product.metadata.content}}</p>
+
+	{{ include('page/_info.html.twig')}}
+	<hr>
+
+	<div class="px-4">
+		{% for comment in product.comments %}
+			{{include('page/_comment.html.twig')}}
+		{% endfor %}
+	</div>
+{% endblock %}
